@@ -100,7 +100,7 @@
                     <div class="form-group">
                         <div *ngIf="website?.invalid && (website?.dirty || website?.touched)"
                             class="text-danger text-small">
-                            <div *ngIf="website?.website?.required">
+                            <div *ngIf="website?.errors?.required">
                                 <small>Website is required.</small>
                             </div>
                             <div *ngIf="website?.website?.minlength">
