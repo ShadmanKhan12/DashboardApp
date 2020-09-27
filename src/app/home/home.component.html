@@ -1,1 +1,40 @@
-<p>home works!</p>
+<section class="home-section">
+    <div class="d-flex mx-auto flex-column col-lg-5">
+        <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, hic molestias ex iste optio harum. Odit,
+            cumque? Autem dolorum, fugit consequatur fuga fugiat sit, doloremque iste modi non culpa ipsam?</h4>
+        <button class="btn-lg btn-primary" (click)="getUsers()">Get Users</button>
+    </div>
+</section>
+<section class="second-section" *ngIf="users">
+    <div class="container" id="users">
+        <div class="row">
+            <div class="col-log-12 table-responsive">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">UserName</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Website</th>
+                            <th scope="col">Company</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let customer of users; let i = index">
+                            <td>{{i+1}}</td>
+                            <td><a (click)="show(customer)" title="Get User Company Details">{{customer.name}}</a></td>
+                            <td>{{customer.username}}</td>
+                            <td>{{customer.phone}}</td>
+                            <td>{{customer.website}}</td>
+                            <td>{{customer.company.name}}</td>
+                            <td><button class="btn btn-primary" (click)=delete(customer)>Delete</button> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
