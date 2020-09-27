@@ -9,13 +9,16 @@ import { User } from '../User';
 })
 export class HomeComponent implements OnInit {
   users: User[];
-  constructor(private userService : UserService) { }
+  userFormData : User;
+  constructor(private userService : UserService) { 
+    this.userFormData = new User();
+  }
 @ViewChild('addUserForm',{static: false}) form : any;
   ngOnInit() {
     
   }
-  submitClick(users : any){
-    this.users.push(users);
+  submitClick(userFormData : User){
+    this.users.push(userFormData);
   }
   getUsers(){
     this.userService.getUsers().subscribe(data=>{

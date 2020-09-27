@@ -46,19 +46,19 @@
 <section class="third-section" *ngIf="users" id="addUser">
     <div class="container">
         <h1 class="text-center" style="padding-bottom: 10px;">Add User</h1>
-        <form #addUserForm="ngForm" (ngSubmit)="addUserForm?.form?.valid && submitClick(users)"
+        <form #addUserForm="ngForm" (ngSubmit)="addUserForm?.form?.valid && submitClick(userFormData)"
             name="oneToOneSessionForm" id="addUserForm" novalidate>
             <div class="row d-flex justify-content-center">
                 <div class="col-5">
                     <div class="form-group">
-                        <input type="text" class="form-control border-radius-0" [(ngModel)]="users.name" name="name">
+                        <input type="text" class="form-control border-radius-0" [(ngModel)]="userFormData.name" name="name">
                     </div>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-5">
                     <div class="form-group">
-                        <input type="text" class="form-control border-radius-0" [(ngModel)]="users.username"
+                        <input type="text" class="form-control border-radius-0" [(ngModel)]="userFormData.username"
                             name="username">
                     </div>
                 </div>
@@ -66,14 +66,14 @@
             <div class="row  d-flex justify-content-center">
                 <div class="col-5">
                     <div class="form-group">
-                        <input type="text" class="form-control border-radius-0" [(ngModel)]="users.phone" name="phone">
+                        <input type="text" class="form-control border-radius-0" [(ngModel)]="userFormData.phone" name="phone">
                     </div>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-5">
                     <div class="form-group">
-                        <input type="text" class="form-control border-radius-0" [(ngModel)]="users.website"
+                        <input type="text" class="form-control border-radius-0" [(ngModel)]="userFormData.website"
                             name="website">
                     </div>
                 </div>
