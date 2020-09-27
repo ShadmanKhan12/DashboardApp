@@ -12,15 +12,21 @@ export class HomeComponent implements OnInit {
   constructor(private userService : UserService) { }
 
   ngOnInit() {
-  
+    this.userService.getUsers().subscribe(data=>{
+      this.users = data;
+       })
   }
   getUsers(){
-    this.userService.getUsers().subscribe(data=>{
-    this.users = data;
-      })
+  
   }
   deleteUser(user : any){
     this.users = this.users.filter(m=>m.id != user.id);
   }
    
+  takeAction(value : any,user : any){
+    console.log('value',value)
+    if(value == "Delete"){
+      this.users = this.users.filter(m=>m.id != user.id);
+    }
+  }
 }
