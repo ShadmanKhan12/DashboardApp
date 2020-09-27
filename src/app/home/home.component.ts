@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit {
   }
   submitClick(userFormData : User){
     this.users.push(userFormData);
+    this.userFormData = new User();
+    this.form.reset();
   }
   getUsers(){
     this.userService.getUsers().subscribe(data=>{

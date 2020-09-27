@@ -1,7 +1,6 @@
 <section class="home-section">
     <div class="d-flex mx-auto flex-column col-lg-5">
-        <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, hic molestias ex iste optio harum. Odit,
-            cumque? Autem dolorum, fugit consequatur fuga fugiat sit, doloremque iste modi non culpa ipsam?</h4>
+        <h4>This application fetches users collection from a free api. The response data are JSON . The data are mapped on a table.</h4>
         <button class="btn btn-lg btn-dark" (click)=getUsers()>Get Users</button>
     </div>
 </section>
@@ -41,7 +40,6 @@
         </div>
     </div>
 
-
 </section>
 <section class="third-section" *ngIf="users" id="addUser">
     <div class="container">
@@ -49,41 +47,74 @@
         <form #addUserForm="ngForm" (ngSubmit)="addUserForm?.form?.valid && submitClick(userFormData)"
             name="oneToOneSessionForm" id="addUserForm" novalidate>
             <div class="row d-flex justify-content-center">
-                <div class="col-5">
+                <div class="col-sm-5 col-lg-6">
                     <div class="form-group">
-                        <input type="text" class="form-control border-radius-0" [(ngModel)]="userFormData.name" name="name">
+                        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="text-danger text-small">
+                            <div *ngIf="name?.errors?.required">
+                                <small>Name is required.</small>
+                            </div>
+                            <div *ngIf="name?.errors?.minlength">
+                                <small>Should be 4 characters</small>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control border-radius-0" [(ngModel)]="userFormData.name"
+                            name="name" placeholder="Name" #name="ngModel" minlength="4" required>
                     </div>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-                <div class="col-5">
+                <div class="col-sm-5 col-lg-6">
                     <div class="form-group">
+                        <div *ngIf="username?.invalid && (username?.dirty || username?.touched)"
+                            class="text-danger text-small">
+                            <div *ngIf="username?.errors?.required">
+                                <small>Name is required.</small>
+                            </div>
+                            <div *ngIf="username?.errors?.minlength">
+                                <small>Should be 4 characters</small>
+                            </div>
+                        </div>
                         <input type="text" class="form-control border-radius-0" [(ngModel)]="userFormData.username"
-                            name="username">
+                            name="username" placeholder="UserName" #username="ngModel" minlength="4" required>
                     </div>
                 </div>
             </div>
             <div class="row  d-flex justify-content-center">
-                <div class="col-5">
+                <div class="col-sm-5 col-lg-6">
                     <div class="form-group">
-                        <input type="text" class="form-control border-radius-0" [(ngModel)]="userFormData.phone" name="phone">
+                        <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)" class="text-danger text-small">
+                            <div *ngIf="phone?.errors?.required">
+                                <small>Phone is required.</small>
+                            </div>
+                            <div *ngIf="phone?.errors?.minlength">
+                                <small>Enter Valid number</small>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control border-radius-0" [(ngModel)]="userFormData.phone"
+                            name="phone" placeholder="Phone" minlength="5" #phone="ngModel" required>
                     </div>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-                <div class="col-5">
+                <div class="col-sm-5 col-lg-6">
                     <div class="form-group">
+                        <div *ngIf="website?.invalid && (website?.dirty || website?.touched)"
+                            class="text-danger text-small">
+                            <div *ngIf="website?.website?.required">
+                                <small>Website is required.</small>
+                            </div>
+                            <div *ngIf="website?.website?.minlength">
+                                <small>Enter Valid website</small>
+                            </div>
+                        </div>
                         <input type="text" class="form-control border-radius-0" [(ngModel)]="userFormData.website"
-                            name="website">
+                            name="website" placeholder="Website" #website="ngModel" minlength="6">
                     </div>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-                    <button class="btn btn-dark justify-content-center" [disabled]="addUserForm.invalid">Add User</button>
+                <button class="btn btn-dark justify-content-center" [disabled]="addUserForm.invalid">Add User</button>
             </div>
-
-       
-
         </form>
     </div>
 </section>
