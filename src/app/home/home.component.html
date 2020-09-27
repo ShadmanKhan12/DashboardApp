@@ -24,7 +24,7 @@
                     <tbody>
                         <tr *ngFor="let customer of users; let i = index">
                             <td>{{i+1}}</td>
-                            <td><a (click)="show(customer)" title="Get User Company Details">{{customer.name}}</a></td>
+                            <td><a title="Get User Company Details">{{customer.name}}</a></td>
                             <td>{{customer.username}}</td>
                             <td>{{customer.phone}}</td>
                             <td>{{customer.website}}</td>
