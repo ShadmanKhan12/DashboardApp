@@ -1,5 +1,5 @@
 # DashboardApp
-This app fetches a users collection from https://jsonplaceholder.typicode.com/ . The response data are of JSON data type . The data are mapped on a table . Data can be deleted and updated. 
+This app fetches a users collection from https://jsonplaceholder.typicode.com/ . The response data are of JSON data type . The data are mapped on a table . Data can be deleted and updated. Data can be updated via a form.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.10.
 
