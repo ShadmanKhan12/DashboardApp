@@ -12,12 +12,12 @@ export class HomeComponent implements OnInit {
   constructor(private userService : UserService) { }
 
   ngOnInit() {
+    
+  }
+  getUsers(){
     this.userService.getUsers().subscribe(data=>{
       this.users = data;
        })
-  }
-  getUsers(){
-  
   }
   deleteUser(user : any){
     this.users = this.users.filter(m=>m.id != user.id);
