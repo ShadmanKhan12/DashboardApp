@@ -2,7 +2,7 @@
     <div class="d-flex mx-auto flex-column col-lg-5">
         <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, hic molestias ex iste optio harum. Odit,
             cumque? Autem dolorum, fugit consequatur fuga fugiat sit, doloremque iste modi non culpa ipsam?</h4>
-            <button class="btn btn-lg btn-dark" (click)=getUsers()>Get Users</button>
+        <button class="btn btn-lg btn-dark" (click)=getUsers()>Get Users</button>
     </div>
 </section>
 <section class="second-section" *ngIf="users">
@@ -18,7 +18,6 @@
                             <th scope="col">UserName</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Website</th>
-                            <th scope="col">Company</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -29,12 +28,10 @@
                             <td>{{customer.username}}</td>
                             <td>{{customer.phone}}</td>
                             <td>{{customer.website}}</td>
-                            <td>{{customer.company.name}}</td>
                             <td>
                                 <select (change)="takeAction($event.target.value,customer)">
                                     <option selected>Select Option</option>
                                     <option>Delete</option>
-                                    <option>Add</option>
                                 </select>
                             </td>
                         </tr>
@@ -42,5 +39,51 @@
                 </table>
             </div>
         </div>
+    </div>
+
+
+</section>
+<section class="third-section" *ngIf="users" id="addUser">
+    <div class="container">
+        <h1 class="text-center" style="padding-bottom: 10px;">Add User</h1>
+        <form #addUserForm="ngForm" (ngSubmit)="addUserForm?.form?.valid && submitClick(users)"
+            name="oneToOneSessionForm" id="addUserForm" novalidate>
+            <div class="row d-flex justify-content-center">
+                <div class="col-5">
+                    <div class="form-group">
+                        <input type="text" class="form-control border-radius-0" [(ngModel)]="users.name" name="name">
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-5">
+                    <div class="form-group">
+                        <input type="text" class="form-control border-radius-0" [(ngModel)]="users.username"
+                            name="username">
+                    </div>
+                </div>
+            </div>
+            <div class="row  d-flex justify-content-center">
+                <div class="col-5">
+                    <div class="form-group">
+                        <input type="text" class="form-control border-radius-0" [(ngModel)]="users.phone" name="phone">
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-5">
+                    <div class="form-group">
+                        <input type="text" class="form-control border-radius-0" [(ngModel)]="users.website"
+                            name="website">
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                    <button class="btn btn-dark justify-content-center" [disabled]="addUserForm.invalid">Add User</button>
+            </div>
+
+       
+
+        </form>
     </div>
 </section>

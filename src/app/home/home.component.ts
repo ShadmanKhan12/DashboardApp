@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../User';
 
@@ -10,9 +10,12 @@ import { User } from '../User';
 export class HomeComponent implements OnInit {
   users: User[];
   constructor(private userService : UserService) { }
-
+@ViewChild('addUserForm',{static: false}) form : any;
   ngOnInit() {
     
+  }
+  submitClick(users : any){
+    this.users.push(users);
   }
   getUsers(){
     this.userService.getUsers().subscribe(data=>{
