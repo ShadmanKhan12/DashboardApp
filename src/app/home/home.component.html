@@ -103,7 +103,7 @@
                             <div *ngIf="website?.errors?.required">
                                 <small>Website is required.</small>
                             </div>
-                            <div *ngIf="website?.website?.minlength">
+                            <div *ngIf="website?.errors?.minlength">
                                 <small>Enter Valid website</small>
                             </div>
                         </div>
